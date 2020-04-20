@@ -238,4 +238,140 @@ GPIOB ->MODER &= 0XFFFF7F5F;
 
 Para el banco C se tienen los pines 7 y 9; como son salidas de propósito general se pone 01.
 
-![GPIOB_moder_ej2_bc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_moder_ej2_bc.PNG)
+![GPIOB_moder_ej2_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_moder_ej2_bb.PNG)
+
+Conviertiendo este valor a hexadecimal:
+
+![GPIOH_moder_ej2_bc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_moder_ej2_bc.PNG)
+
+Entonces, primero se reinicia el pin con los valores ya predeterminados
+
+ GPIOC ->MODER &= 0XFFFFFFFF;
+ 
+Y finalmente se pone la configuración de salidas.
+
+GPIOC ->MODER &= 0XFFF77FFF;
+
+* Finalmente se pone un estado de alto lógico en los pines que se van a utilizar: Para el banco B en los pines 1,2 y 7
+
+![GPIOB_ODR_ej2_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_ODR_ej2_bb.PNG)
+
+Convirtiendo a hexadecimal:
+
+![GPIOH_ODR_ej2_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_ODR_ej2_bb.PNG)
+
+Entonces
+
+GPIOB -> ODR |= 0x0085;
+
+Para el banco C en los pines 7 y 9.
+
+![GPIOB_ODR_ej2_bc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_ODR_ej2_bc.PNG)
+
+Convirtiendo a hexadecimal:
+
+![GPIOH_ODR_ej2_bc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_ODR_ej2_bc.PNG)
+
+Entonces:
+
+GPIOC -> ODR |= 0x0240;
+
+Hasta ahora se han configurado los pines que van a ser usados, ahora en la sección del programa while se va a programar como se va a ejecutar la secuencia:
+
+Primero se va a definir la siguiente variable antes del main, de la siguiente forma:
+
+~~~
+#define LEDDELAY_1 500000
+~~~
+
+En el int main (void), se va a poner toda la configuración de los pines hecha anteriormente, además se fa a definir una variable a, de la siguiente forma:
+
+~~~
+//int main (void)
+{
+Int a;
+a=0;
+//Se habilita el banco B y C
+RCC ->AHB2ENR= 0x00000006;
+// Se habilitan como salidas los pines que se van a usar
+//Para el banco B
+GPIOB ->MODER &=  0XFFFF7FD7
+GPIOB ->MODER &= 0XFFFF7F5F;
+//Para el banco C
+GPIOC ->MODER &= 0XFFFFFFFF;
+GPIOC ->MODER &= 0XFFF77FFF;
+//Poner en estado lógico alto los pines que se van a usar
+GPIOB -> ODR |= 0x0085;
+GPIOC -> ODR |= 0x0240;
+~~~
+
+Ahora en el While (1), se hará lo siguiente:
+
+~~~
+while(1)
+{
+~~~
+
+Se van a poner los LED en el siguiente orden B1,B2,B7,C7,C9
+
+Primero se va a encender el LED ubicado en el  pin B1, por esta razón se le va a enviar un 1 a esta posición y las otras estarán en 0.
+
+Convirtiendo a hexadecimal:
+
+![while_ej2](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/while_ej2.PNG)
+
+~~~
+//Entonces
+GPIOB->ODR = 0x0002;
+//Como el banco C no se va a encender ningún pin se va a poner todo en 0:
+GPIOC ->ODR = 0x0000;
+//Y este estará encendido, mientras se cumpla lo siguiente:
+While(a< LEDDELAY_1){
+a=a+1;}
+// Segundo se va a encender el LED ubicado en el pin B2 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0004;
+GPIOC ->ODR = 0x0000;
+While(a< LEDDELAY_1){
+a=a+1;}
+ // Tercero se va a encender el LED ubicado en el pin B7 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0080;
+GPIOC ->ODR = 0x0000;
+While(a< LEDDELAY_1){
+a=a+1;}
+// Cuarto se va a encender el LED ubicado en el pin C7 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0000;
+GPIOC ->ODR = 0x0080;
+While(a< LEDDELAY_1){
+a=a+1;}
+// Quinto se va a encender el LED ubicado en el pin C9 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0000;
+GPIOC ->ODR = 0x0200;
+While(a< LEDDELAY_1){
+a=a+1;}
+// Sexto e va a encender el LED ubicado en el pin C7 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0000;
+GPIOC ->ODR = 0x0080;
+While(a< LEDDELAY_1){
+a=a+1;}
+// Séptimo e va a encender el LED ubicado en el pin B7 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0080;
+GPIOC ->ODR = 0x0000;
+While(a< LEDDELAY_1){
+a=a+1;}
+// Octavo e va a encender el LED ubicado en el pin B2 siguiendo la metodología anterior, tratando cada uno de los bancos por separado, se tiene que:
+a=0
+GPIOB ->ODR = 0x0004;
+GPIOC ->ODR = 0x0000;
+While(a< LEDDELAY_1){
+a=a+1;}
+}
+}
+~~~
+
+
