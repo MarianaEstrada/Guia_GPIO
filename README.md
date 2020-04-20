@@ -3,7 +3,7 @@ Son pines genéricos que pueden ser configurados como una entrada o una salida p
 
 ## AHB2 peripheral clock enable register (RCC_AHB2ENR)
 
-Primero se deben activar los bancos que van a ser usados, para esto es necesario mirar en el esquemático de la tarjeta (está ubicado en la carpeta compartida de diseño digital, en la carpeta documentos) a qué banco pertenece el pin que va a ser usado. Para activar un banco se debe poner un 1 en la casilla correspondiente y posteriormente convertir este valor a hexadecimal.
+Primero se deben activar los bancos que van a ser usados, para esto es necesario mirar en el esquemático de la tarjeta ([MB1136  schematic board](https://drive.google.com/drive/folders/1zetsGlHlD79WABo6YgIWQx73YNY_aocd "MB1136")) a qué banco pertenece el pin que va a ser usado. Para activar un banco se debe poner un 1 en la casilla correspondiente y posteriormente convertir este valor a hexadecimal.
 
 ![Img1](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/Img1.PNG)
 
@@ -373,5 +373,9 @@ a=a+1;}
 }
 }
 ~~~
+
+## Tarea
+
+Realizar una secuencia de LED's diferente a las anteriormente planteadas.
 
 
