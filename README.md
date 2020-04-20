@@ -96,4 +96,12 @@ Para el banco A en los pines 5,6 y 7
 
 ![GPIOB_ODR_ej1_ba](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_ODR_ej1_ba.PNG)
 
+Convirtiendo a hexadecimal:
 
+![GPIOH_ODR_ej1_ba](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_ODR_ej1_ba.PNG)
+
+Entonces:
+
+GPIOA -> ODR |= 0x00E0;
+
+Para el banco B en los pines 5 y 6.
