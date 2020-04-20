@@ -106,4 +106,3 @@ GPIOA -> ODR |= 0x00E0;
 
 Para el banco B en los pines 5 y 6.
 
-K
