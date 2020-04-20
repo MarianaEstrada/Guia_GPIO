@@ -220,7 +220,22 @@ Convirtiendo este valor a hexadecimal:
 Entonces
 RCC ->AHB2ENR= 0x00000006;
 
-*Segundo, se van a configurar los pines como salidas: Para el banco B se tienen los pines 1, 2 y 7; como son salidas de propósito general se pone 01.
+* Segundo, se van a configurar los pines como salidas: Para el banco B se tienen los pines 1, 2 y 7; como son salidas de propósito general se pone 01.
 
 ![GPIOB_moder_ej2_bbc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_moder_ej2_bbc.PNG)
-GPIOB_moder_ej2_bb
+
+Convirtiendo este valor a hexadecimal:
+
+![GPIOH_moder_ej2_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_moder_ej2_bb.PNG)
+
+Entonces, primero se reinicia el pin con los valores ya predeterminados
+
+ GPIOB ->MODER &=  0XFFFF7FD7
+ 
+Y finalmente se pone la configuración de salidas.
+
+GPIOB ->MODER &= 0XFFFF7F5F;
+
+Para el banco C se tienen los pines 7 y 9; como son salidas de propósito general se pone 01.
+
+![GPIOB_moder_ej2_bc](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_moder_ej2_bc.PNG)
