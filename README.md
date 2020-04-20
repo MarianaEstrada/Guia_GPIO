@@ -76,8 +76,16 @@ GPIOA ->MODER &= 0xFFFFF57FF;
 
 Para el banco B se tienen los pines 5 y 6; como son salidas de propósito general se pone 01.
 
-![GPIOB_moder_ej1_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOB_moder_ej1_bb.PNG)
+![GPIOH_moder_ej1_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOH_moder_ej1_bb.PNG)
 
-Convirtiendo este valor a hexadecimal:
+Entonces, primero se reinicia el pin con los valores ya predeterminados
 
-![GPIOH_moder_ej1_bb](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/GPIOBH_moder_ej1_bb.PNG)
+ GPIOB ->MODER &= 0xFFFFFEBF
+ 
+Y finalmente se pone la configuración de salidas.
+
+GPIOA ->MODER &= 0xFFFFD7FF;
+
+* Finalmente se pone un estado de alto lógico en los pines que se van a utilizar:
+
+Para el banco A en los pines 5,6 y 7
