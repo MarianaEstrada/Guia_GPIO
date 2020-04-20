@@ -44,6 +44,9 @@ Se va a realizar una secuencia de luces de la siguiente forma:
 ![ej1](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/ej1.PNG)
 
 Se van a usar los pines A5,A6,A7,B5,B6.
+
+Pasos para la creación de un proyecto [aquí](https://github.com/MarianaEstrada/Pasos-para-crear-un-proyecto/blob/master/README.md "Pasos para crear un proyecto")
+
 * Primero se van a activar los bancos A y B, poniendo en 1 en las casillas 0 y 1.
 
 ![RCCB_EJ1](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/RCCB_EJ1.PNG)
@@ -201,13 +204,15 @@ a=a+1;}
 }
 ~~~
 
-## Ejercicio 
+## Ejercicio 2
 
 Se va a realizar una secuencia de luces de la siguiente forma:
 
 ![ej2](https://github.com/MarianaEstrada/Guia_GPIO/blob/master/Imagenes/ej2.PNG)
 
 Se van a usar los pines B1, B2,B7,C7 y C9
+
+Pasos para la creación de un proyecto [aquí](https://github.com/MarianaEstrada/Pasos-para-crear-un-proyecto/blob/master/README.md "Pasos para crear un proyecto")
 
 * Primero se van a activar los bancos B y C, poniendo en 1 en las casillas 1 y 2.
 
