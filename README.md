@@ -204,6 +204,8 @@ a=a+1;}
 }
 ~~~
 
+Pasos para correr el programa [Aquí](https://github.com/MarianaEstrada/Pasos-para-correr-un-proyecto/blob/master/README.md)
+
 ## Ejercicio 2
 
 Se va a realizar una secuencia de luces de la siguiente forma:
@@ -378,6 +380,8 @@ a=a+1;}
 }
 }
 ~~~
+
+Pasos para correr el programa [Aquí](https://github.com/MarianaEstrada/Pasos-para-correr-un-proyecto/blob/master/README.md)
 
 ## Tarea
 
